@@ -601,9 +601,13 @@ app.put('/editRating', async (req, res) => {
   });
 });
 app.use(express.static(path.join(__dirname, 'html')));
+app.use(express.static(path.join(__dirname, 'css')));
+app.use(express.static(path.join(__dirname, 'js')));
+app.use(express.static(path.join(__dirname, 'src'))); 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'html', 'index.html'));
 });
+
 
 // Inicia o servidor na porta 3000
 app.listen(3000, () => {
