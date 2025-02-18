@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 
                 localStorage.setItem('token', data.token); 
                 
-                window.location.href = 'home.html'; 
+                window.location.href = 'index.html'; 
             } else {
               
             }

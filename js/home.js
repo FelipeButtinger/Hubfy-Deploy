@@ -156,7 +156,7 @@ console.log(participantsData.result.length)
   if (isUserAlreadyRegistered) {
     alert("Você já está cadastrado neste evento.");
     setTimeout(function() {
-      window.location.href = 'home.html'; 
+      window.location.href = 'index.html'; 
     }, 1000);
     return
   }
@@ -165,7 +165,7 @@ console.log(participantsData.result.length)
   if (eventData.organizer_id === userData.id) {
     alert("Você não pode entrar em um evento que criou.");
     setTimeout(function() {
-      window.location.href = 'home.html'; 
+      window.location.href = 'index.html'; 
     }, 1000);
     return
   }
@@ -174,7 +174,7 @@ console.log(participantsData.result.length)
   if (userActiveEvents.length >= 3) {
     alert("Você atingiu o limite de 3 eventos ativos ao mesmo tempo. Saia de um para criar ou entrar em um novo.");
     setTimeout(function() {
-      window.location.href = 'home.html'; 
+      window.location.href = 'index.html'; 
     }, 1000);
     return
   }
@@ -189,7 +189,7 @@ console.log(participantsData.result.length)
 
     if (response.ok) {
       alert('Inscrição realizada com sucesso!');
-      window.location.href = 'home.html'; 
+      window.location.href = 'index.html'; 
     } else {
       const errorMessage = await response.text();
       alert(`Erro: ${errorMessage}`);

@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       // 🔴 Verifica se o usuário logado é o organizador do evento
       if (eventData.organizer_id !== userData.id) {
-        window.location.href = "home.html"; // Se não for o organizador, redireciona para a página inicial
+        window.location.href = "index.html"; // Se não for o organizador, redireciona para a página inicial
         return;
       }
 
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!isEditing && activeEvents.length >= 3) {
       alert("Você atingiu o limite de 3 eventos ativos ao mesmo tempo, saia de um para criar ou entrar em um novo");
       setTimeout(function () {
-        window.location.href = 'home.html'; // Redireciona o usuário para a página inicial após 3 segundos
+        window.location.href = 'index.html'; // Redireciona o usuário para a página inicial após 3 segundos
       }, 3000);
     } else {
       // Coleta os valores dos campos do formulário
