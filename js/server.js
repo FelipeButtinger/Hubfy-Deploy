@@ -22,10 +22,11 @@ app.use(bodyParser.json()); // Middleware para processar o corpo das requisiçõ
 
 // Configura a conexão com o banco de dados MySQL
 const db = mysql.createConnection({
-  host: 'localhost',
+  host: 'yamanote.proxy.rlwy.net',
   user: 'root', // Ajuste conforme necessário
-  password: '', // Insira a senha se aplicável
-  database: 'project' // Nome do banco de dados
+  password: 'crCCcnBsQMuEJKcUpfTGIOcIopKAXiHI', // Insira a senha se aplicável
+  database: 'railway', // Nome do banco de dados
+  port: 12716 // Use a porta correta aqui
 });
 
 // Conecta ao banco de dados e exibe mensagem de sucesso ou erro
