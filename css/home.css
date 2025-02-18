@@ -1,0 +1,390 @@
+/* Reset e estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho do elemento */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /* Define a família de fontes padrão */
+}
+
+/* Estilos para o corpo da página */
+body {
+    min-height: 100vh; /* Garante que o body ocupe pelo menos a altura total da viewport */
+    background: linear-gradient(135deg, #6366f1 0%, #3b82f6 50%, #06b6d4 100%); /* Gradiente de fundo */
+    color: #1f2937; /* Cor do texto principal */
+}
+
+/* Estilos para o cabeçalho */
+header {
+    background: white; /* Fundo branco */
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* Sombra suave */
+    height: 90px; /* Altura fixa */
+    top: 0; /* Fixa no topo da página */
+    z-index: 10; /* Garante que o cabeçalho fique acima de outros elementos */
+    display: flex;
+    justify-content: space-between; /* Alinha os itens à esquerda e à direita */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 0 5%; /* Padding horizontal */
+    position: sticky; /* Fixa o cabeçalho ao rolar a página */
+}
+
+/* Estilos para a imagem no cabeçalho */
+header img {
+    height: 80px; /* Altura fixa */
+    transition: transform 0.2s ease-in-out; /* Transição suave ao aplicar transformações */
+}
+
+/* Efeito de zoom ao passar o mouse sobre a imagem */
+header img:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para o lado direito do cabeçalho */
+#rightHeaderSide {
+    display: flex;
+    justify-content: space-evenly; /* Distribui os itens igualmente */
+    width: 50%; /* Largura fixa */
+    gap: 20px; /* Espaçamento entre os links */
+}
+
+/* Estilos para os links no cabeçalho */
+.links {
+    height: 90px; /* Altura fixa */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    gap: 10px; /* Espaçamento entre ícone e texto */
+    padding: 0 10px; /* Padding horizontal */
+    border-radius: 8px; /* Bordas arredondadas */
+    transition: background-color 0.2s ease-in-out; /* Transição suave ao mudar a cor de fundo */
+}
+
+/* Efeito de fundo ao passar o mouse sobre os links */
+.links:hover {
+    background-color: #f3f4f6;
+}
+
+/* Estilos para as imagens dentro dos links */
+.links img {
+    height: 30px; /* Altura fixa */
+    transition: transform 0.2s ease-in-out; /* Transição suave ao aplicar transformações */
+}
+
+/* Efeito de zoom ao passar o mouse sobre as imagens dentro dos links */
+.links:hover img {
+    transform: scale(1.1);
+}
+
+/* Estilos para os textos dos links */
+.links a {
+    text-decoration: none; /* Remove sublinhado */
+    color: #1f2937; /* Cor do texto */
+    font-weight: 500; /* Peso da fonte */
+    font-size: 1rem; /* Tamanho da fonte */
+    transition: color 0.2s ease-in-out; /* Transição suave ao mudar a cor do texto */
+}
+
+/* Efeito de cor ao passar o mouse sobre os textos dos links */
+.links a:hover {
+    color: #3b82f6;
+}
+
+/* Estilos para a navegação */
+nav {
+    display: flex;
+    gap: 1rem; /* Espaçamento entre os itens */
+    justify-content: flex-end; /* Alinha os itens à direita */
+}
+
+/* Estilos para o botão de criação */
+.create-button {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    gap: 0.5rem; /* Espaçamento entre ícone e texto */
+    padding: 0.5rem 1rem; /* Padding interno */
+    border-radius: 0.5rem; /* Bordas arredondadas */
+    text-decoration: none; /* Remove sublinhado */
+    font-weight: 500; /* Peso da fonte */
+    background: linear-gradient(to right, #6366f1, #3b82f6); /* Gradiente de fundo */
+    color: white; /* Cor do texto */
+}
+
+/* Efeito de opacidade ao passar o mouse sobre o botão de criação */
+.create-button:hover {
+    opacity: 0.9;
+}
+
+/* Estilo do botão do usuário */
+.user-button {
+    display: flex; /* Define um layout flexível */
+    align-items: center; /* Alinha os itens do botão verticalmente no centro */
+    gap: 0.5rem; /* Define um espaço de 0.5rem entre os itens do botão */
+    padding: 0.5rem 1rem; /* Define o espaçamento interno (padding) do botão */
+    border-radius: 0.5rem; /* Arredonda os cantos do botão */
+    text-decoration: none; /* Remove qualquer decoração de texto (underline, etc.) */
+    font-weight: 500; /* Define o peso da fonte do texto no botão */
+    color: #4b5563; /* Define a cor do texto do botão */
+    background: #f3f4f6; /* Define a cor de fundo do botão */
+}
+
+/* Estilo do botão do usuário ao passar o mouse */
+.user-button:hover {
+    background: #e5e7eb; /* Muda a cor de fundo quando o botão é hover */
+}
+
+/* Estilo da barra de pesquisa e filtros */
+#filter {
+    width: 60dvw; /* Define a largura da barra de pesquisa como 60% da largura da tela */
+    margin: 20px auto; /* Define uma margem de 20px na parte superior e inferior e centraliza a barra */
+    text-align: center; /* Centraliza o texto dentro da barra */
+}
+
+/* Estilo do campo de pesquisa */
+#searchInput {
+    width: 100%; /* Define a largura do campo de pesquisa como 100% da largura disponível */
+    max-width: 500px; /* Define uma largura máxima de 500px para o campo */
+    padding: 10px; /* Define o espaçamento interno do campo */
+    font-size: 16px; /* Define o tamanho da fonte do texto */
+    border: 1px solid #ccc; /* Define uma borda cinza clara para o campo */
+    border-radius: 5px; /* Arredonda os cantos da borda do campo */
+    outline: none; /* Remove a borda de foco padrão */
+    margin-bottom: 10px; /* Define uma margem inferior de 10px */
+}
+
+/* Estilo para o campo de pesquisa quando está em foco */
+#searchInput:focus {
+    border-color: #007bff; /* Muda a cor da borda para azul quando o campo está em foco */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Adiciona uma sombra azul ao redor do campo quando em foco */
+}
+
+/* Estilo para tipos específicos de inputs dentro da barra de pesquisa */
+.search-bar input[type="date"],
+.search-bar input[type="time"],
+.search-bar input[type="number"] {
+    padding: 8px; /* Define o espaçamento interno dos inputs */
+    margin: 5px; /* Define uma margem de 5px ao redor dos inputs */
+    border: 1px solid #ccc; /* Define uma borda cinza clara */
+    border-radius: 4px; /* Arredonda os cantos da borda dos inputs */
+    width: 180px; /* Define a largura dos inputs como 180px */
+}
+
+/* Estilo para a seção principal (lista de eventos) */
+main {
+    max-width: 1200px; /* Define uma largura máxima para a seção */
+    margin: 2rem auto; /* Define uma margem de 2rem no topo e na parte inferior e centraliza a seção */
+    padding: 0 1rem; /* Define um espaçamento interno de 1rem nas laterais */
+    display: grid; /* Usa o layout grid */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Cria uma grid com colunas de no mínimo 300px */
+    gap: 1.5rem; /* Define um espaçamento de 1.5rem entre os itens da grid */
+}
+
+/* Estilo para os cards de evento */
+.eventCard {
+    background-color: whitesmoke; /* Define o fundo do card como uma cor suave */
+    width: 320px; /* Define a largura do card */
+    height: 420px; /* Define a altura do card */
+    background-size: cover; /* Faz com que a imagem de fundo cubra todo o card */
+    background-position: center; /* Centraliza a imagem de fundo */
+    border-radius: 10px; /* Arredonda os cantos do card */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil ao redor do card */
+    margin-top: 20px; /* Define uma margem superior de 20px */
+}
+
+/* Estilo para o card de evento quando contém uma imagem de fundo dinâmica */
+.eventCard[data-image-url] {
+    background-image: url('data:image/jpeg;base64,{{imageBase64}}'); /* Define a imagem de fundo usando uma URL base64 dinâmica */
+}
+
+/* Estilo para o hover do card de evento */
+.eventCard:hover {
+    transform: translateY(-2px); /* Move o card levemente para cima quando passa o mouse */
+}
+
+/* Estilo para o título do card de evento */
+.eventCard h3 {
+    font-size: 1.25rem; /* Define o tamanho da fonte do título */
+    font-weight: 600; /* Define o peso da fonte do título */
+    color: #1f2937; /* Define a cor do título */
+    margin-bottom: 1rem; /* Define uma margem inferior de 1rem */
+    margin-left: 5px; /* Define uma margem à esquerda de 5px */
+    margin-right: 5px; /* Define uma margem à direita de 5px */
+}
+
+/* Estilo para a divisão de elementos dentro do card */
+.divide {
+    display: flex; /* Usa o layout flexível */
+    justify-content: space-between; /* Alinha os itens do container de forma a distribuir o espaço igualmente */
+    margin-bottom: 0.75rem; /* Define uma margem inferior de 0.75rem */
+}
+
+/* Estilo para os parágrafos dentro do card de evento */
+.eventCard p {
+    color: #4b5563; /* Define a cor do texto para um tom cinza escuro */
+    margin-bottom: 0.5rem; /* Define uma margem inferior de 0.5rem */
+    margin-left: 5px; /* Define uma margem à esquerda de 5px */
+    margin-right: 5px; /* Define uma margem à direita de 5px */
+}
+
+/* Estilo para o botão dentro do card de evento */
+.eventCard button {
+    width: 90%; /* Define a largura do botão como 90% da largura do card */
+    padding: 0.75rem; /* Define o espaçamento interno do botão */
+    background: linear-gradient(to right, #6366f1, #3b82f6); /* Define um fundo com um gradiente de roxo para azul */
+    color: white; /* Define a cor do texto do botão como branca */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 0.5rem; /* Arredonda os cantos do botão */
+    font-weight: 500; /* Define o peso da fonte do texto no botão */
+    cursor: pointer; /* Muda o cursor para um ponteiro quando o mouse passa sobre o botão */
+    transition: opacity 0.2s; /* Define uma transição suave na mudança de opacidade */
+    margin-left: 5%; /* Define uma margem à esquerda de 5% */
+}
+
+/* Estilo do botão do card de evento ao passar o mouse */
+.eventCard button:hover {
+    opacity: 0.9; /* Define a opacidade para 90% quando o botão é hover */
+    transition: 0.5s; /* Define uma transição suave de 0.5s para o efeito de hover */
+    transform: scale(1.1); /* Aumenta o tamanho do botão ao passar o mouse */
+}
+
+/* Estilos do modal (caixa de diálogo) */
+#joinEventLock {
+    display: none; /* O modal está oculto por padrão */
+    position: fixed; /* Posiciona o modal fixo na tela */
+    top: 0; /* Posiciona o modal no topo da tela */
+    left: 0; /* Posiciona o modal na esquerda da tela */
+    width: 100%; /* Define a largura do modal para 100% da tela */
+    height: 100%; /* Define a altura do modal para 100% da tela */
+    background: rgba(0, 0, 0, 0.5); /* Aplica um fundo semitransparente escuro ao modal */
+    z-index: 100; /* Define a camada do modal, colocando-o acima dos outros elementos */
+}
+#organizerProfile{
+    font-size: 3rem;
+    color: black;
+    
+}
+
+/* Estilo do conteúdo do modal */
+#joinEvent {
+    position: relative; /* Define o conteúdo do modal como relativo em relação ao seu contêiner */
+    background: white; /* Define o fundo do modal como branco */
+    width: 90%; /* Define a largura do modal como 90% da tela */
+    max-width: 800px; /* Define a largura máxima do modal */
+    margin: 2rem auto; /* Centraliza o modal e aplica uma margem de 2rem em cima e embaixo */
+    border-radius: 1rem; /* Arredonda os cantos do modal */
+    padding: 2rem; /* Define o espaçamento interno do modal */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), /* Aplica uma sombra ao modal */
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Estilo do cabeçalho do modal */
+.modal-header {
+    display: flex; /* Usa layout flexível */
+    justify-content: space-between; /* Espaça os itens igualmente entre o cabeçalho */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    margin-bottom: 1.5rem; /* Define uma margem inferior de 1.5rem */
+}
+
+/* Estilo do botão de fechar no modal */
+.close-button {
+    background: none; /* Remove o fundo do botão de fechar */
+    border: none; /* Remove a borda do botão de fechar */
+    color: #6b7280; /* Define a cor do texto do botão de fechar */
+    cursor: pointer; /* Muda o cursor para um ponteiro */
+    padding: 0.5rem; /* Define o espaçamento interno do botão */
+    transition: color 0.2s; /* Aplica uma transição suave na cor ao passar o mouse */
+}
+
+/* Estilo do botão de fechar ao passar o mouse */
+.close-button:hover {
+    color: #1f2937; /* Muda a cor do texto do botão para um cinza escuro quando o mouse passa sobre ele */
+}
+
+/* Estilos para o rodapé do modal */
+#bottom {
+    display: grid; /* Usa o layout grid */
+    grid-template-columns: 1fr 1fr; /* Cria duas colunas de igual tamanho */
+    gap: 2rem; /* Define um espaçamento de 2rem entre as colunas */
+}
+
+/* Estilo para o lado esquerdo do modal */
+#leftSide {
+    color: #4b5563; /* Define a cor do texto como cinza escuro */
+    line-height: 1.6; /* Define a altura da linha para melhorar a legibilidade do texto */
+}
+
+/* Estilo para o título do evento dentro do modal */
+.event-info h1 {
+    font-size: 1.5rem; /* Define o tamanho da fonte do título principal */
+    font-weight: 600; /* Define o peso da fonte do título */
+    color: #1f2937; /* Define a cor do título como um cinza escuro */
+    margin-bottom: 1rem; /* Define uma margem inferior de 1rem */
+}
+
+/* Estilo para o subtítulo do evento dentro do modal */
+.event-info h2 {
+    font-size: 1rem; /* Define o tamanho da fonte do subtítulo */
+    font-weight: 500; /* Define o peso da fonte do subtítulo */
+    color: #4b5563; /* Define a cor do subtítulo como cinza escuro */
+    margin-bottom: 0.75rem; /* Define uma margem inferior de 0.75rem */
+}
+
+/* Estilo para o link de contato no modal */
+#contact {
+    display: inline-block; /* Define o link como um bloco inline */
+    padding: 0.75rem 1rem; /* Define o espaçamento interno do link */
+    background: #25D366; /* Define o fundo do link como verde */
+    color: white; /* Define a cor do texto como branca */
+    text-decoration: none; /* Remove o sublinhado do link */
+    border-radius: 0.5rem; /* Arredonda os cantos do link */
+    margin: 1rem 0; /* Define margens de 1rem em cima e embaixo */
+    font-weight: 500; /* Define o peso da fonte do link */
+    transition: background-color 0.2s; /* Aplica uma transição suave na mudança de cor de fundo */
+}
+
+/* Estilo para o botão de contato no modal ao passar o mouse */
+#contact:hover {
+    background: #128C7E; /* Muda a cor de fundo do botão de contato para um tom verde mais escuro quando o mouse passa sobre ele */
+}
+
+/* Estilo para o botão de usuário dentro de um evento */
+#userEvent {
+    width: 100%; /* Define a largura do botão como 100% da largura disponível */
+    padding: 0.75rem; /* Define o espaçamento interno do botão */
+    background: linear-gradient(to right, #6366f1, #3b82f6); /* Aplica um gradiente de roxo para azul como fundo */
+    color: white; /* Define a cor do texto do botão como branca */
+    border: none; /* Remove a borda do botão */
+    border-radius: 0.5rem; /* Arredonda os cantos do botão */
+    font-weight: 500; /* Define o peso da fonte do texto do botão */
+    cursor: pointer; /* Muda o cursor para um ponteiro ao passar sobre o botão */
+    transition: opacity 0.2s; /* Aplica uma transição suave na opacidade do botão */
+    margin-top: 1rem; /* Adiciona uma margem superior de 1rem */
+}
+
+/* Estilo para o botão de usuário dentro de um evento ao passar o mouse */
+#userEvent:hover {
+    opacity: 0.9; /* Define a opacidade para 90% quando o botão é hover */
+}
+
+/* Estilo para a área de mensagem */
+#message {
+    text-align: center; /* Centraliza o texto da mensagem */
+    padding: 1rem; /* Define o espaçamento interno da área de mensagem */
+    color: #4b5563; /* Define a cor do texto como cinza escuro */
+}
+
+/* Estilos para responsividade em telas menores (máximo de 768px) */
+@media (max-width: 768px) {
+    #bottom {
+        grid-template-columns: 1fr; /* Altera a grid para ter uma única coluna ao invés de duas em telas menores */
+    }
+
+    nav {
+        flex-direction: column; /* Altera o layout de navegação para uma coluna ao invés de linha */
+        align-items: center; /* Alinha os itens do menu no centro */
+    }
+
+    /* Estilo para os botões de criação e usuário em telas menores */
+    .create-button,
+    .user-button {
+        width: 100%; /* Define a largura dos botões como 100% da largura disponível */
+        text-align: center; /* Centraliza o texto dentro dos botões */
+    }
+}

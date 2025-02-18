@@ -1,0 +1,181 @@
+/* Reset and base styles */
+* {
+  margin: 0; /* Remove a margem padrão de todos os elementos */
+  padding: 0; /* Remove o preenchimento padrão de todos os elementos */
+  box-sizing: border-box; /* Faz com que o padding e a borda sejam incluídos nas dimensões do elemento */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /* Define a fonte base do site */
+}
+
+body {
+  min-height: 100vh; /* Define a altura mínima do body como 100% da altura da janela */
+  background: linear-gradient(135deg, #6366f1 0%, #3b82f6 50%, #06b6d4 100%); /* Aplica um gradiente de cor de fundo */
+  display: flex; /* Usa Flexbox para alinhamento */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  padding: 1rem; /* Adiciona um espaçamento interno de 1rem ao redor do body */
+}
+
+/* Background circle */
+#circuloBackGround {
+  position: absolute; /* Posiciona o círculo em relação à tela */
+  top: -50%; /* Move o círculo para cima, fazendo com que parte dele fique fora da tela */
+  left: -20%; /* Move o círculo para a esquerda */
+  width: 800px; /* Define a largura do círculo */
+  height: 800px; /* Define a altura do círculo */
+  background: rgba(255, 255, 255, 0.1); /* Cor de fundo semitransparente */
+  border-radius: 50%; /* Torna a forma redonda */
+  filter: blur(100px); /* Aplica um efeito de desfoque no círculo */
+  pointer-events: none; /* Impede que o círculo interaja com o mouse */
+}
+
+/* Main container */
+main {
+  width: 100%; /* Largura 100% do contêiner principal */
+  max-width: 400px; /* Define a largura máxima do contêiner principal */
+  background: white; /* Define o fundo do contêiner como branco */
+  padding: 2rem; /* Adiciona um espaçamento interno de 2rem ao redor do contêiner */
+  border-radius: 1rem; /* Torna os cantos do contêiner arredondados */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), /* Adiciona uma sombra suave ao redor do contêiner */
+              0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Adiciona uma sombra menor ao redor do contêiner */
+  position: relative; /* Posiciona o contêiner de forma relativa, permitindo que elementos internos se posicionem com base nele */
+}
+
+/* Logo styles */
+.logo-container {
+  text-align: center; /* Centraliza o conteúdo dentro do container da logo */
+  margin-bottom: 2rem; /* Adiciona um espaçamento de 2rem abaixo do container da logo */
+}
+
+.logo-container img {
+  width: 150px; /* Define a largura da logo */
+  height: auto; /* Mantém a proporção da imagem da logo */
+  margin-bottom: 1rem; /* Adiciona um espaçamento de 1rem abaixo da logo */
+}
+
+/* Profile upload styles */
+.profile-upload {
+  display: flex; /* Usa Flexbox para layout do conteúdo */
+  flex-direction: column; /* Organiza os itens em uma coluna */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  margin-bottom: 1.5rem; /* Adiciona um espaçamento abaixo do container de upload de perfil */
+}
+
+.profile-preview {
+  width: 96px; /* Define a largura da pré-visualização da imagem do perfil */
+  height: 96px; /* Define a altura da pré-visualização da imagem do perfil */
+  border-radius: 50%; /* Torna a pré-visualização redonda */
+  background: #f3f4f6; /* Define o fundo da pré-visualização como cinza claro */
+  display: flex; /* Usa Flexbox para centralizar a imagem dentro do círculo */
+  align-items: center; /* Alinha a imagem verticalmente */
+  justify-content: center; /* Alinha a imagem horizontalmente */
+  cursor: pointer; /* Muda o cursor para um ponteiro ao passar sobre o elemento */
+  overflow: hidden; /* Garante que a imagem não ultrapasse os limites do círculo */
+  position: relative; /* Permite o posicionamento de elementos dentro da pré-visualização */
+  margin-bottom: 0.5rem; /* Adiciona um espaçamento abaixo da pré-visualização */
+}
+
+.profile-preview img {
+  width: 100%; /* Faz com que a imagem ocupe toda a área da pré-visualização */
+  height: 100%; /* Faz com que a altura da imagem ocupe toda a área da pré-visualização */
+  object-fit: cover; /* Garante que a imagem cubra completamente a área, mantendo a proporção */
+}
+
+.upload-icon {
+  font-size: 2rem; /* Define o tamanho do ícone de upload */
+  color: #9ca3af; /* Define a cor do ícone como cinza */
+}
+
+.upload-text {
+  font-size: 0.875rem; /* Define o tamanho do texto de upload */
+  color: #6b7280; /* Define a cor do texto de upload */
+}
+
+.hidden {
+  display: none; /* Esconde elementos com a classe "hidden" */
+}
+
+/* Form styles */
+#registerForm {
+  display: flex; /* Usa Flexbox para organização do formulário */
+  flex-direction: column; /* Organiza os itens do formulário em uma coluna */
+  gap: 1rem; /* Define um espaçamento de 1rem entre os itens do formulário */
+}
+
+/* Input Field Styles */
+.input {
+  width: 100%; /* O campo de entrada ocupa 100% da largura do elemento pai */
+  padding: 0.875rem 1rem; /* Adiciona espaçamento interno ao campo de entrada */
+  border: 1px solid #e5e7eb; /* Define uma borda de 1px com cor cinza claro */
+  border-radius: 0.5rem; /* Bordas arredondadas de 0.5rem */
+  font-size: 1rem; /* Define o tamanho da fonte como 1rem */
+  transition: all 0.2s; /* Transição suave para todos os efeitos de alteração */
+  outline: none; /* Remove o contorno padrão ao focar no campo */
+}
+
+.input:focus {
+  border-color: #6366f1; /* Altera a cor da borda para um tom de azul quando o campo é focado */
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1); /* Aplica uma sombra azul suave ao redor do campo de entrada quando ele é focado */
+}
+
+.input::placeholder {
+  color: #9ca3af; /* Define a cor do texto de placeholder como um cinza claro */
+}
+
+/* Button Styles */
+button {
+  width: 100%; /* O botão ocupa 100% da largura do elemento pai */
+  padding: 0.875rem; /* Adiciona espaçamento interno ao botão */
+  background: linear-gradient(to right, #6366f1, #3b82f6); /* Aplica um gradiente de cor de fundo no botão */
+  color: white; /* Define a cor do texto como branco */
+  border: none; /* Remove a borda padrão do botão */
+  border-radius: 0.5rem; /* Bordas arredondadas de 0.5rem */
+  font-weight: 500; /* Define o peso da fonte como médio */
+  font-size: 1rem; /* Define o tamanho da fonte como 1rem */
+  cursor: pointer; /* Define o cursor como ponteiro, indicando que o botão é clicável */
+  transition: opacity 0.2s; /* Transição suave na alteração de opacidade */
+}
+
+button:hover {
+  opacity: 0.9; /* Reduz a opacidade para 0.9 quando o botão é sobrevoado */
+}
+
+/* Footer Styles */
+#loginFormFooter {
+  margin-top: 1rem; /* Adiciona um espaçamento de 1rem acima do rodapé do formulário */
+  text-align: center; /* Centraliza o texto dentro do rodapé */
+}
+
+#loginFormFooter a {
+  color: #6366f1; /* Define a cor do link como azul */
+  text-decoration: none; /* Remove o sublinhado do link */
+  font-size: 0.875rem; /* Define o tamanho da fonte do link */
+  font-weight: 500; /* Define o peso da fonte do link como médio */
+  transition: color 0.2s; /* Transição suave na alteração da cor do link */
+}
+
+#loginFormFooter a:hover {
+  color: #4f46e5; /* Altera a cor do link para um tom mais escuro de azul ao passar o mouse sobre ele */
+}
+
+/* Message Container */
+#message {
+  margin-top: 1rem; /* Adiciona um espaçamento de 1rem acima da mensagem */
+  text-align: center; /* Centraliza o texto da mensagem */
+  font-size: 0.875rem; /* Define o tamanho da fonte da mensagem */
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  main {
+    padding: 1.5rem; /* Aumenta o preenchimento interno do contêiner principal em telas pequenas */
+  }
+  
+  .logo-text {
+    font-size: 1.75rem; /* Aumenta o tamanho da fonte da logo-texto em telas pequenas */
+  }
+  
+  .logo-symbol {
+    width: 1.75rem; /* Aumenta a largura do símbolo da logo em telas pequenas */
+    height: 1.75rem; /* Aumenta a altura do símbolo da logo em telas pequenas */
+  }
+}

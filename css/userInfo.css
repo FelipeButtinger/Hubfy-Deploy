@@ -1,0 +1,270 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6366f1 0%, #3b82f6 50%, #06b6d4 100%);
+    color: #1f2937;
+
+}
+
+header {
+    background: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    height: 90px;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    position: sticky;
+}
+
+header img {
+    height: 80px;
+    transition: transform 0.2s ease-in-out;
+}
+
+header img:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+#rightSide {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    gap: 20px; /* Espaçamento entre os links */
+}
+
+.links {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre ícone e texto */
+    padding: 0 10px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.links:hover {
+    background-color: #f3f4f6; 
+}
+
+.links img {
+    height: 30px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.links:hover img {
+    transform: scale(1.1);
+}
+
+.links a {
+    text-decoration: none;
+    color: #1f2937;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.links a:hover {
+    color: #3b82f6; 
+}
+/* Main Content */
+main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 1rem;
+}
+
+#mainDiv {
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* User Info Section */
+#userInfo {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+#imgSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.fill {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.rating-container {
+    justify-content: flex-end;
+}
+
+.rating-container img {
+    width: 2rem;
+    height: 2rem;
+}
+
+#rating {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #6366f1;
+}
+
+#imgDiv {
+    text-align: center;
+}
+
+#profilePic {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    border: 4px solid #6366f1;
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.3);
+    margin-bottom: 1rem;
+}
+
+#userName {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* Honors Section */
+#honors {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.honor-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.honorImg {
+    width: 3rem;
+    height: 3rem;
+    transition: transform 0.2s;
+}
+
+.honorImg:hover {
+    transform: scale(1.1);
+}
+#crudButtons {
+    display: none;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+#crudButtons button{
+    border-style: none;
+    background: none;
+    height: 50px;
+    width: 100px;
+    cursor: pointer;
+}
+#crudButtons img{
+    height: 100%;
+}
+/* Comments Section */
+#comments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.commentCard {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+.commentCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#yourRating {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #imgSection {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .fill {
+        justify-content: center;
+    }
+
+    .rating-container {
+        justify-content: center;
+    }
+
+    #honors {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .honor-item {
+        flex: 1;
+        min-width: 100px;
+    }
+
+    .honorImg {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #userInfo {
+        padding: 1.5rem;
+    }
+
+    #profilePic {
+        width: 96px;
+        height: 96px;
+    }
+
+    #userName {
+        font-size: 1.25rem;
+    }
+
+    #rating {
+        font-size: 1.25rem;
+    }
+
+    .honorImg {
+        width: 2rem;
+        height: 2rem;
+    }
+}

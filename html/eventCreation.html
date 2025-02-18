@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Evento - Hubfy</title>
+    <link rel="stylesheet" href="../css/eventCreation.css">
+</head>
+<body>
+    <header>
+        
+        <a href="../html/home.html"><img src="../src/logo.png" alt=""></a>
+    
+    <div id="rightSide">
+        <div class="links">
+            <img src="../src/adicionar.png" alt="">
+            <a href="../html/eventCreation.html">Criar Evento</a>
+        </div>
+        <div class="links">
+            <img src="../src/evento.png" alt="">
+            <a href="../html/user.html">Seus Eventos</a>
+        </div>
+        <div class="links">
+            <img src="../src/perfil.png" alt="">
+            <a id="link" href=''>Perfil</a>
+        </div>
+    </div>
+</header>
+<main>
+    <div id="circuloBackGround"></div>
+    
+    <div class="container">
+        <div class="form-section">
+            <h2>Registrar Evento</h2>
+            <form id="eventRegisterForm" enctype="multipart/form-data">
+                <div>
+                    <label for="name">Nome do Evento</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="Digite o nome do evento" 
+                        required
+                        oninput="updatePreview()"
+                    >
+                </div>
+                
+                <div>
+                    <label for="description">Descrição</label>
+                    <textarea 
+                        id="description" 
+                        name="description" 
+                        placeholder="Digite a descrição do evento" 
+                        required
+                        oninput="updatePreview()"
+                    ></textarea>
+                </div>
+                
+                <div>
+                    <label for="event_type">Tipo de Evento</label>
+                    <select 
+                        id="event_type" 
+                        name="event_type" 
+                        required
+                        onchange="updatePreview()"
+                    >
+                        <option value="" disabled selected>Selecione o tipo do evento</option>
+                        <option value="Encontro social">Encontro social</option>
+                        <option value="Rodas de Apoio">Rodas de Apoio</option>
+                        <option value="Geek">Geek</option>
+                        <option value="Cultural">Cultural</option>
+                        <option value="Tecnológico">Tecnológico</option>
+                        <option value="Voluntáriado">Voluntariado</option>
+                        <option value="Esporte">Esporte</option>
+                        <option value="artesanal">Artesanal</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="participants">Número de Participantes</label>
+                    <input 
+                        type="number" 
+                        id="participants" 
+                        name="participants" 
+                        placeholder="Digite o número de participantes" 
+                        min="2" 
+                        required
+                        oninput="updatePreview()"
+                    >
+                </div>
+                
+                <div>
+                    <label for="event_date">Data do Evento</label>
+                    <input 
+                        type="date" 
+                        id="event_date" 
+                        name="event_date" 
+                        required
+                        onchange="updatePreview()"
+                    >
+                </div>
+                
+                <div>
+                    <label for="event_time">Horário do Evento</label>
+                    <input 
+                        type="time" 
+                        id="event_time" 
+                        name="event_time" 
+                        required
+                        onchange="updatePreview()"
+                    >
+                </div>
+
+                <div class="file-input-container">
+                    <label for="image">Imagem do Evento</label>
+                    <label class="file-input-button" for="image">
+                        Escolher arquivo
+                    </label>
+                    <input 
+                        type="file" 
+                        id="image" 
+                        name="image" 
+                        accept="image/*"
+                        required
+                        onchange="handleImagePreview(event)"
+                    >
+                </div>
+
+                <div>
+                    <label for="cep">CEP</label>
+                    <input 
+                        type="text" 
+                        id="cep" 
+                        name="cep" 
+                        placeholder="Digite o CEP" 
+                        maxlength="9" 
+                        pattern="[0-9]{5}-[0-9]{3}" 
+                        title="Digite o CEP no formato 12345-678" 
+                        required
+                        oninput="updatePreview()"
+                    >
+                </div>
+                
+                <div>
+                    <label for="phone_number">Telefone</label>
+                    <input 
+                        type="text" 
+                        id="phone_number" 
+                        name="phone_number" 
+                        placeholder="Digite o telefone" 
+                        maxlength="15" 
+                        pattern="^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$" 
+                        title="Digite um número de telefone válido com DDD" 
+                        required
+                        oninput="updatePreview()"
+                    >
+                </div>
+                
+                <button type="submit">Registrar Evento</button>
+            </form>
+        </div>
+
+        <div class="preview-section">
+            <h2>Preview do Evento</h2>
+            <div class="preview-card">
+                <div class="preview-image" id="previewImage">
+                    <span>Imagem do evento</span>
+                </div>
+                <div class="preview-content">
+                    <h3 class="preview-title" id="previewTitle">Nome do Evento</h3>
+                    <div class="preview-details">
+                        <p id="previewType">Tipo: -</p>
+                        <p id="previewParticipants">Participantes: -</p>
+                        <p id="previewDateTime">Data e Hora: -</p>
+                        <p id="previewLocation">Local: -</p>
+                        <p id="previewContact">Contato: -</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="message"></div>
+</main>
+
+
+    <script>
+        function handleImagePreview(event) {
+            const file = event.target.files[0];
+            const previewImage = document.getElementById('previewImage');
+            
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function updatePreview() {
+            const name = document.getElementById('name').value || 'Nome do Evento';
+            const type = document.getElementById('event_type').value || '-';
+            const participants = document.getElementById('participants').value || '-';
+            const date = document.getElementById('event_date').value;
+            const time = document.getElementById('event_time').value;
+            const cep = document.getElementById('cep').value || '-';
+            const phone = document.getElementById('phone_number').value || '-';
+
+            document.getElementById('previewTitle').textContent = name;
+            document.getElementById('previewType').textContent = `Tipo: ${type}`;
+            document.getElementById('previewParticipants').textContent = `Participantes: ${participants}`;
+            document.getElementById('previewDateTime').textContent = `Data e Hora: ${date} ${time}`;
+            document.getElementById('previewLocation').textContent = `Local: ${cep}`;
+            document.getElementById('previewContact').textContent = `Contato: ${phone}`;
+        }
+
+        // Format CEP input
+        document.getElementById('cep').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 5) {
+                value = value.slice(0, 5) + '-' + value.slice(5, 8);
+            }
+            e.target.value = value;
+        });
+
+        // Format phone input
+        document.getElementById('phone_number').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 10) {
+                value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7, 11)}`;
+            } else if (value.length > 2) {
+                value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+            }
+            e.target.value = value;
+        });
+    </script>
+
+    <script src="../js/eventCreation.js"></script>
+</body>
+</html>

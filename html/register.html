@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/register.css">
+    <title>Hubfy - Register</title>
+</head>
+<body>
+    <div id="circuloBackGround"></div>
+    
+    <main>
+        <div class="logo-container">
+            <img src="../src/logo2.png" alt="">
+        </div>
+
+        <form id="registerForm" enctype="multipart/form-data">
+            <div class="profile-upload">
+                <div class="profile-preview" id="profilePreview">
+                    <img src="" alt="Pré-visualização" id="previewImage" style="display: none;">
+                    <div class="upload-icon" id="defaultIcon">+</div>
+                </div>
+                <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*">
+                <p class="upload-text">Clique para adicionar sua foto</p>
+            </div>
+
+            <input type="text" id="name" name="name" class="input" placeholder="Nome completo" required maxlength="100">
+            <input type="number" id="age" name="age" class="input" placeholder="Idade" min="18" required maxlength="100" max="120">
+            <input type="text" id="contact" name="contact" class="input" placeholder="Email ou telefone" required>
+            <input type="password" id="password" name="password" class="input" placeholder="Senha" required maxlength="100">
+            
+            <button type="submit" id="submitButton">Registrar</button>
+        </form>
+
+        <div id="loginFormFooter">
+            <a href="login.html">Já tem conta? Faça login</a>
+        </div>
+
+        <div id="message"></div>
+    </main>
+
+    <script src="../js/register.js"></script>
+</body>
+</html>

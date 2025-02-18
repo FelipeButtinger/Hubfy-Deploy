@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/userInfo.css">
+    <title>Hubfy - User Profile</title>
+</head>
+<body>
+    <header>
+        
+        <a href="../html/home.html"><img src="../src/logo.png" alt=""></a>
+    
+    <div id="rightSide">
+        <div class="links">
+            <img src="../src/adicionar.png" alt="">
+            <a href="../html/eventCreation.html">Criar Evento</a>
+        </div>
+        <div class="links">
+            <img src="../src/evento.png" alt="">
+            <a href="../html/user.html">Seus Eventos</a>
+        </div>
+        <div class="links">
+            <img src="../src/perfil.png" alt="">
+            <a id="link" onclick=location.reload()>Perfil</a>
+        </div>
+    </div>
+</header>
+
+    <main>
+        <div id="mainDiv">
+            <div id="userInfo">
+                <div id="imgSection">
+                    <div class="fill">
+                        <!-- Left spacer -->
+                    </div>
+                    <div id="imgDiv">
+                        <img id="profilePic" src="../src/lider.png" alt="Profile Picture">
+                        <h1 id="userName"></h1>
+                    </div>
+                    <div class="fill rating-container">
+                        <img src="../src/yellowStar.png" alt="Rating">
+                        <h2 id="rating">4.2</h2>
+                    </div>
+                </div>
+                <div id="honors">
+                    <div class="fill"></div>
+                    <div class="honor-item">
+                        <img class="honorImg" src="../src/lider.png" alt="Leadership">
+                        <h1 id="leadership"></h1>
+                    </div>
+                    <div class="honor-item">
+                        <img class="honorImg" src="../src/sociavel.png" alt="Sociable">
+                        <h1 id="sociable"></h1>
+                    </div>
+                    <div class="honor-item">
+                        <img class="honorImg" src="../src/participativo.png" alt="Participative">
+                        <h1 id="participative"></h1>
+                    </div>
+                    <div class="fill"></div>
+                </div>
+                <div id="crudButtons">
+                    <button onclick=editAccount()><img src="../src/edit.png" alt=""><h1>Editar</h1></button>
+                    <button onclick=leaveAccount()><img src="../src/exit.png" alt=""><h1>Sair</h1></button>
+                </div>
+            </div>
+            
+            <div id="comments">
+                <div class="commentCard" id="yourRating"></div>
+            </div>
+        </div>
+    </main>
+    <script src="../js/userInfo.js"></script>
+</body>
+</html>

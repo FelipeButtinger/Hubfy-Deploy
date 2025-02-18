@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Definição do conjunto de caracteres para o documento -->
+    <meta charset="UTF-8">
+    
+    <!-- Meta tag para tornar a página responsiva em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Link para o arquivo CSS que define o estilo da página -->
+    <link rel="stylesheet" href="../css/home.css">
+    
+    <!-- Título da página exibido na aba do navegador -->
+    <title>Hubfy - Eventos</title>
+</head>
+<body>
+    <header>
+        <!-- Link para a página principal, com a imagem do logo -->
+        <a href="../html/home.html"><img src="../src/logo.png" alt=""></a>
+        
+        <div id="rightHeaderSide">
+            <!-- Seção com os links de navegação -->
+            <div class="links">
+                <!-- Ícone de adicionar evento -->
+                <img src="../src/adicionar.png" alt="">
+                <a href="../html/eventCreation.html">Criar Evento</a>
+            </div>
+            <div class="links">
+                <!-- Ícone de eventos do usuário -->
+                <img src="../src/evento.png" alt="">
+                <a href="../html/user.html">Seus Eventos</a>
+            </div>
+            <div class="links">
+                <!-- Ícone de perfil do usuário -->
+                <img src="../src/perfil.png" alt="">
+                <a id="link" href=''>Perfil</a>
+            </div>
+        </div>
+    </header>
+
+    <div id="filter">
+        <!-- Barra de pesquisa e filtros de eventos -->
+        <div class="search-bar">
+            <!-- Campo de pesquisa de eventos -->
+            <input type="text" id="searchInput" placeholder="Pesquisar eventos" oninput="filterEventsAndGroups()">
+            
+            <div>
+                <!-- Filtros de data, hora e número de participantes -->
+                <input type="date" id="filterDate" onchange="filterEventsAndGroups()">
+                <input type="time" id="filterTime" onchange="filterEventsAndGroups()">
+                <input type="number" id="filterParticipants" placeholder="Nº máximo de participantes" min="0" oninput="filterEventsAndGroups()">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para detalhar evento -->
+    <div id="joinEventLock">
+        <div id="joinEvent">
+            <!-- Botão de fechar modal -->
+            <button onclick="fecharEvento()" class="close-button">
+                <!-- Ícone do botão de fechar -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            
+            <div id="top">
+                <!-- Imagem do evento -->
+                <img id="eventImage" src="" alt="Imagem do Evento" style="width: 100%; height: auto; border-radius: 8px;">
+                <!-- Título do evento -->
+                <h1 id="preencher"></h1>
+            </div>
+
+            <div id="bottom">
+                <!-- Detalhes do evento -->
+                <div id="leftSide">
+                    <!-- Descrição do evento -->
+                    <p id="description"></p>
+                </div>
+                <div id="rightSide">
+                    <!-- Tipo, data e local do evento -->
+                    <h1 id="type"></h1>
+                    <h2 id="dataHora"></h2>
+                    <h2 id="local"></h2>
+                    <!-- Link para contato -->
+                    <a id="organizerProfile" href="" target="_blank"></a>
+                    <a id="contact" href="" target="_blank">Entrar em contato</a>
+
+                    <!-- Número de participantes -->
+                    <h2 id="participants"></h2>
+                    <!-- Botão de participação no evento -->
+                    <button id="userEvent" value="" onclick="entrarEvento()">Participar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lista de grupos -->
+    <div id="groupsList"></div>
+    <!-- Lista de eventos -->
+    <main id="eventsList"></main>
+    <!-- Mensagem exibida em algum contexto da página -->
+    <div id="message"></div>
+
+    <!-- Link para o arquivo JavaScript que contém as funcionalidades da página -->
+    <script src="../js/home.js"></script>
+</body>
+</html>
