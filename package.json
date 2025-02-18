@@ -9,7 +9,7 @@
     "mysql2": "^3.12.0"
   },
   "scripts": {
-    "start": "node js/server.js",
+    "start": "node server.js",
     "build": "echo 'Build complete'"
   }
 }
