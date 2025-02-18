@@ -6,6 +6,7 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs'); 
 const multer = require('multer');
+const path = require('path');
 
 
 // Configuração do multer para processar uploads de arquivos
@@ -17,15 +18,9 @@ const upload = multer({
 const app = express();
 const SECRET_KEY = 'seu_segredo_aqui'; // Substitua por um segredo seguro para gerar tokens JWT
 
-const path = require('path'); // Adicione no início do arquivo
+
 
 // Serve arquivos estáticos (HTML, CSS, JS, imagens)
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Rota para a raiz (/)
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
 
 // Middleware para habilitar o CORS (Cross-Origin Resource Sharing)
 app.use(cors());
@@ -604,6 +599,10 @@ app.put('/editRating', async (req, res) => {
 
     res.json({ message: 'nota atualizada com sucesso' });
   });
+});
+app.use(express.static(path.join(__dirname, 'html')));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'html', 'index.html'));
 });
 
 // Inicia o servidor na porta 3000
