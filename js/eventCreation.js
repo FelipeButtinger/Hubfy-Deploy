@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Define o link de acesso à página de informações do usuário, passando os dados como parâmetros na URL
   document.getElementById(
     "link"
-  ).href = `../html/userInfo.html?id=${userData.id}&name=${userData.name}`;
+  ).href = `/html/userInfo.html?id=${userData.id}&name=${userData.name}`;
 
   // Obtém os parâmetros da URL
   const urlParams = new URLSearchParams(window.location.search);

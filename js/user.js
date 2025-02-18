@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("seu id: ", userData.id);
     document.getElementById(
       "link"
-    ).href = `../html/userInfo.html?id=${userData.id}&name=${userData.name}`;
+    ).href = `/html/userInfo.html?id=${userData.id}&name=${userData.name}`;
     // Requisição para a rota /userEvents, captura todos os eventos do usuário, desde eventos ativos até eventos que já aconteceram
     const eventsResponse = await fetch(
       `http://localhost:3000/userEvents?userId=${userData.id}`,
@@ -302,7 +302,7 @@ async function renderPastCard(index, organizerId) {
                   id="description" name="description" required maxlength="500">${
                     pastEvents[index].description
                   }</textarea>
-                  <a style="color: black; font-size:2rem" href="../html/userInfo.html?id=${
+                  <a style="color: black; font-size:2rem" href="/html/userInfo.html?id=${
                     organizerData.id
                   }&name=${organizerData.name}">${organizerName}</a>
         <p>${pastEvents[index].event_type}</p>
@@ -368,7 +368,7 @@ async function renderActiveCard(button) {
         <textarea readonly style="resize: none;width: 90%;height:15%;display:flex" id="description" name="description" maxlength="500">${
           activeEvents[index].description
         }</textarea>
-        <a style="color: black; font-size:2rem" href="../html/userInfo.html?id=${organizerData.id}&name=${organizerData.name}">${organizerName}</a>
+        <a style="color: black; font-size:2rem" href="/html/userInfo.html?id=${organizerData.id}&name=${organizerData.name}">${organizerName}</a>
         <p>${activeEvents[index].event_type}</p>
         <div class="divide">
             <p><strong>Data:</strong> ${data.split("-").reverse().join("/")}</p>
@@ -532,19 +532,19 @@ async function fillHonorCards(participants) {
       div.classList.add("honorBlock");
       div.id = `honorCard${i}`;
       div.innerHTML = `
-        <a style="color: black; font-size:2rem" href="../html/userInfo.html?id=${participants[i].id}&name=${participants[i].name}">${participants[i].name}</a>
+        <a style="color: black; font-size:2rem" href="/html/userInfo.html?id=${participants[i].id}&name=${participants[i].name}">${participants[i].name}</a>
         <div class ='honorCard'>
             
             <div class="honorImages"> 
-            <button onclick="changeHonor(${participants[i].id},'leadership')"><img src="../src/lider.png" title="Liderança"></button>
+            <button onclick="changeHonor(${participants[i].id},'leadership')"><img src="/src/lider.png" title="Liderança"></button>
             </div>
             <h2>${honorData.leadership_honors}</h2>
             <div class="honorImages"> 
-            <button onclick="changeHonor(${participants[i].id},'sociable')"><img src="../src/sociavel.png" title="Sociável"></button>
+            <button onclick="changeHonor(${participants[i].id},'sociable')"><img src="/src/sociavel.png" title="Sociável"></button>
             </div>
             <h2>${honorData.sociable_honors}</h2>
             <div class="honorImages"> 
-               <button onclick="changeHonor(${participants[i].id},'participative')"><img src="../src/participativo.png" title="Participativo"></button>
+               <button onclick="changeHonor(${participants[i].id},'participative')"><img src="/src/participativo.png" title="Participativo"></button>
             </div>
              <h2>${honorData.participative_honors}</h2>
              </div>
@@ -603,10 +603,10 @@ async function changeRating(button) {
   document.getElementById("finishRatingBtn").value = rating;
 
   for (let i = 1; i <= 5; i++) {
-    document.getElementById(`star${i}`).src = "../src/blankStar.png";
+    document.getElementById(`star${i}`).src = "/src/blankStar.png";
   }
   for (let i = 1; i <= rating; i++) {
-    document.getElementById(`star${i}`).src = "../src/yellowStar.png";
+    document.getElementById(`star${i}`).src = "/src/yellowStar.png";
   }
 }
 async function rate(button) {

@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (userResponse.ok) {
     userData = await userResponse.json();
     console.log('Dados do usuário:', userData);
-    document.getElementById('link').href = `../html/userInfo.html?id=${userData.id}&name=${userData.name}`
+    document.getElementById('link').href = `/html/userInfo.html?id=${userData.id}&name=${userData.name}`
   } else {
     messageElement.textContent = 'Erro ao obter dados do usuário.';
     return;
@@ -252,7 +252,7 @@ async function entrarCardEvento(button) {
       document.getElementById('dataHora').textContent = `Data: ${partes[2]}/${partes[1]}/${partes[0]} - Hora: ${eventData.event_time.slice(0, -3)}`;
       document.getElementById('local').textContent = `Local: ${cepData.bairro}, ${cepData.localidade} - ${cepData.uf}`;
       document.getElementById('contact').href = `https://api.whatsapp.com/send?phone=55${phoneNumber}`;
-      document.getElementById('organizerProfile').href = `../html/userInfo.html?id=${eventData.organizer_id}&name=${organizerData.name}`;
+      document.getElementById('organizerProfile').href = `/html/userInfo.html?id=${eventData.organizer_id}&name=${organizerData.name}`;
       document.getElementById('organizerProfile').text = `${organizerData.name}`;
       document.getElementById('participants').textContent = `Participantes: ${participantsData.participants}/${eventData.participants}`;
       document.getElementById('userEvent').value = selectedEvent;

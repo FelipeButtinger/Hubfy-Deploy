@@ -94,7 +94,7 @@ async function userComment(rating){
             <h3>Você</h3>
         </div>
         <div style="height: 5dvh;display:flex">
-            <img style="height: 5dvh" src="../src/yellowStar.png" alt="Estrela">
+            <img style="height: 5dvh" src="/src/yellowStar.png" alt="Estrela">
             <h3>${rating.rating_value}</h3>
         </div>
     </div>
@@ -124,7 +124,7 @@ async function addComment(rating) {
                 <h3>${raterInfo.name}</h3> 
             </div>
             <div style="height: 5dvh;display:flex">
-                <img style="height: 5dvh" src="../src/yellowStar.png" alt="Estrela">
+                <img style="height: 5dvh" src="/src/yellowStar.png" alt="Estrela">
                 <h3>${rating.rating_value}</h3>
             </div>
         </div>
@@ -155,11 +155,11 @@ async function fetchUserImage(userId) {
             return URL.createObjectURL(blob); // Retorna a URL gerada para a imagem
         } else {
             console.error('Erro ao buscar a imagem:', response.statusText);
-            return "../src/defaultUser.png"; // Imagem padrão em caso de erro
+            return "/src/defaultUser.png"; // Imagem padrão em caso de erro
         }
     } catch (error) {
         console.error('Erro ao buscar a imagem:', error);
-        return "../src/sociavel.png"; // Imagem padrão em caso de erro
+        return "/src/sociavel.png"; // Imagem padrão em caso de erro
     }
 }
 
@@ -176,5 +176,5 @@ function leaveAccount(){
 
 // Função que redireciona para a página de edição de conta
 function editAccount(){
-    window.location.href = `../html/register.html?id=${userData.id}`;
+    window.location.href = `/html/register.html?id=${userData.id}`;
 }
