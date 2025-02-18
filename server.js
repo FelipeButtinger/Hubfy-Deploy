@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs'); 
 const multer = require('multer');
 
+
 // Configuração do multer para processar uploads de arquivos
 const upload = multer({
     limits: {
@@ -15,6 +16,16 @@ const upload = multer({
 });
 const app = express();
 const SECRET_KEY = 'seu_segredo_aqui'; // Substitua por um segredo seguro para gerar tokens JWT
+
+const path = require('path'); // Adicione no início do arquivo
+
+// Serve arquivos estáticos (HTML, CSS, JS, imagens)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Rota para a raiz (/)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // Middleware para habilitar o CORS (Cross-Origin Resource Sharing)
 app.use(cors());
