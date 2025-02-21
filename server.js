@@ -23,7 +23,11 @@ const SECRET_KEY = 'seu_segredo_aqui'; // Substitua por um segredo seguro para g
 // Serve arquivos estáticos (HTML, CSS, JS, imagens)
 
 // Middleware para habilitar o CORS (Cross-Origin Resource Sharing)
-app.use(cors());
+app.use(cors({
+  origin: 'https://hubfy-deploy-production.up.railway.app', // URL do frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 app.use(bodyParser.json()); // Middleware para processar o corpo das requisições em JSON
 
 // Configura a conexão com o banco de dados MySQL

@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const messageElement = document.getElementById('message');
 
   // Obtém os dados do usuário autenticado
-  const userResponse = await fetch('http://localhost:3000/user', {
+  const userResponse = await fetch('https://hubfy-deploy-production.up.railway.app/user', {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Obtém os IDs dos eventos disponíveis
   try {
-    const eventsResponse = await fetch('http://localhost:3000/events/ids', {
+    const eventsResponse = await fetch('https://hubfy-deploy-production.up.railway.app/events/ids', {
       method: 'GET',
     });
 
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Função para buscar e exibir os dados de um evento
   async function fetchEventData(eventId) {
     try {
-      const eventResponse = await fetch(`http://localhost:3000/eventId?id=${eventId}`);
+      const eventResponse = await fetch(`https://hubfy-deploy-production.up.railway.app/eventId?id=${eventId}`);
       if (!eventResponse.ok) {
         throw new Error(`Erro: ${eventResponse.statusText}`);
       }
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const partes = data.split('-');
 
       // Adiciona a imagem do evento
-      const imageUrl = `http://localhost:3000/eventImage/${eventId}`;
+      const imageUrl = `https://hubfy-deploy-production.up.railway.app/eventImage/${eventId}`;
 
       // Adiciona o conteúdo do card
       div.innerHTML = `
@@ -134,7 +134,7 @@ async function entrarEvento() {
   const userActiveEvents = await getUserEvents();
 
   // Obtém os dados do evento selecionado
-  const eventResponse = await fetch(`http://localhost:3000/eventId?id=${selectedEvent}`);
+  const eventResponse = await fetch(`https://hubfy-deploy-production.up.railway.app/eventId?id=${selectedEvent}`);
   if (!eventResponse.ok) {
     throw new Error(`Erro: ${eventResponse.statusText}`);
   }
@@ -181,7 +181,7 @@ console.log(participantsData.result.length)
 
   // Tenta inscrever o usuário no evento
   try {
-    const response = await fetch('http://localhost:3000/participantsRegister', {
+    const response = await fetch('https://hubfy-deploy-production.up.railway.app/participantsRegister', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ event_id: selectedEvent, participant_id: participantId }),
@@ -207,14 +207,14 @@ async function entrarCardEvento(button) {
 
   try {
       // Obtém os dados do evento
-      const eventResponse = await fetch(`http://localhost:3000/eventId?id=${selectedEvent}`);
+      const eventResponse = await fetch(`https://hubfy-deploy-production.up.railway.app/eventId?id=${selectedEvent}`);
       if (!eventResponse.ok) {
           throw new Error(`Erro: ${eventResponse.statusText}`);
       }
       const eventData = await eventResponse.json();
 
       // Carrega a imagem do evento
-      const imageUrl = `http://localhost:3000/eventImage/${selectedEvent}`;
+      const imageUrl = `https://hubfy-deploy-production.up.railway.app/eventImage/${selectedEvent}`;
       document.getElementById('eventImage').src = imageUrl;
 
       // Obtém os dados do CEP
@@ -225,7 +225,7 @@ async function entrarCardEvento(button) {
       const cepData = await cepResponse.json();
 
       // Obtém o número de participantes
-      const participantsResponse = await fetch(`http://localhost:3000/participants?groupId=${selectedEvent}`);
+      const participantsResponse = await fetch(`https://hubfy-deploy-production.up.railway.app/participants?groupId=${selectedEvent}`);
       if (!participantsResponse.ok) {
           throw new Error(`Erro: ${participantsResponse.statusText}`);
       }
@@ -315,7 +315,7 @@ function fecharEvento() {
 async function getUserEvents(){
   let activeEvents = []
   const eventsResponse = await fetch(
-    `http://localhost:3000/userEvents?userId=${userData.id}`,
+    `https://hubfy-deploy-production.up.railway.app/userEvents?userId=${userData.id}`,
     {
       method: "GET",
     }
@@ -355,7 +355,7 @@ async function getUserEvents(){
 }
 async function participantsInfo(groupId) {
   const participantsResponse = await fetch(
-    `http://localhost:3000/participantsInfo?groupId=${groupId}`
+    `https://hubfy-deploy-production.up.railway.app/participantsInfo?groupId=${groupId}`
   );
   if (!participantsResponse.ok) {
     throw new Error(`Erro: ${participantsResponse.statusText}`);
@@ -366,7 +366,7 @@ async function participantsInfo(groupId) {
 }
 async function fetchOrganizerData(organizerId){
   const userIdResponse = await fetch(
-    `http://localhost:3000/userId?id=${organizerId}`
+    `https://hubfy-deploy-production.up.railway.app/userId?id=${organizerId}`
   );
   if (!userIdResponse.ok) {
     throw new Error(`Erro ao buscar organizador: ${userIdResponse.statusText}`);

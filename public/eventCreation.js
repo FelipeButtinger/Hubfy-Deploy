@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // Realiza uma requisição para obter os dados do usuário logado
-  const userResponse = await fetch("http://localhost:3000/user", {
+  const userResponse = await fetch("https://hubfy-deploy-production.up.railway.app/user", {
     method: "GET",
     headers: { Authorization: `Bearer ${token}` }, // Passa o token no cabeçalho da requisição
   });
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
       // Realiza uma requisição para obter os dados do evento que será editado
       const response = await fetch(
-        `http://localhost:3000/eventId?id=${eventId}`
+        `https://hubfy-deploy-production.up.railway.app/eventId?id=${eventId}`
       );
       if (!response.ok) throw new Error(`Erro: ${response.statusText}`); // Se não obtiver resposta OK, gera um erro
 
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (eventData.image) {
         document.getElementById(
           "previewImage"
-        ).innerHTML = `<img src="http://localhost:3000/eventImage/${eventId}" alt="Imagem do evento" style="width: 80%;">`;
+        ).innerHTML = `<img src="https://hubfy-deploy-production.up.railway.app/eventImage/${eventId}" alt="Imagem do evento" style="width: 80%;">`;
       }
     } catch (error) {
       console.error(error); // Caso ocorra erro na requisição, exibe no console
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Realiza uma requisição para buscar os eventos do usuário logado
   const eventsResponse = await fetch(
-    `http://localhost:3000/userEvents?userId=${userData.id}`,
+    `https://hubfy-deploy-production.up.railway.app/userEvents?userId=${userData.id}`,
     {
       method: "GET",
     }
@@ -174,8 +174,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       // Define a URL da requisição e o método dependendo se está criando ou editando o evento
       const url = isEditing
-        ? "http://localhost:3000/editEvent"
-        : "http://localhost:3000/eventRegister";
+        ? "https://hubfy-deploy-production.up.railway.app/editEvent"
+        : "https://hubfy-deploy-production.up.railway.app/eventRegister";
       const method = isEditing ? "PUT" : "POST";
 
       try {

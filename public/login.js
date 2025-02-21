@@ -8,7 +8,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     const password = document.getElementById('password').value;
 
     // Envia uma solicitação HTTP para o servidor na rota '/login' usando o método POST
-    const response = await fetch('http://localhost:3000/login', {
+    const response = await fetch('https://hubfy-deploy-production.up.railway.app/login', {
         method: 'POST', // Define o método HTTP como POST, geralmente usado para enviar dados ao servidor
         headers: {
             'Content-Type': 'application/json' // Define o tipo de conteúdo como JSON para o servidor entender o formato dos dados

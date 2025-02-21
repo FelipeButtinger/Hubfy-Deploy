@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const messageElement = document.getElementById('message');
 
     // Realiza uma requisição para obter os dados do usuário logado
-    const response = await fetch('http://localhost:3000/user', {
+    const response = await fetch('https://hubfy-deploy-production.up.railway.app/user', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}` // Envia o token para autenticar a requisição
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 // Função que busca as honrarias do usuário (como liderança, sociabilidade e participação)
 async function receiveHonors(){
     // Requisição para obter as honrarias do usuário pelo ID
-    const allHonorResponse = await fetch(`http://localhost:3000/honorInfo?id=${thisId}`, {
+    const allHonorResponse = await fetch(`https://hubfy-deploy-production.up.railway.app/honorInfo?id=${thisId}`, {
         method: 'GET'
     });
 
@@ -65,7 +65,7 @@ async function receiveHonors(){
 // Função que busca as avaliações do usuário (pontuação média e comentários)
 async function receiveRatings(){
     // Requisição para obter as avaliações do usuário
-    const ratingsResponse = await fetch(`http://localhost:3000/getRatings?userId=${thisId}`, {
+    const ratingsResponse = await fetch(`https://hubfy-deploy-production.up.railway.app/getRatings?userId=${thisId}`, {
         method: 'GET'
     });
     
@@ -139,7 +139,7 @@ async function addComment(rating) {
 
 // Função que busca os dados do usuário pelo ID
 async function getUser(userId){
-    const userIdResponse = await fetch(`http://localhost:3000/userId?id=${userId}`);
+    const userIdResponse = await fetch(`https://hubfy-deploy-production.up.railway.app/userId?id=${userId}`);
     if (!userIdResponse.ok) {
         throw new Error(`Erro ao buscar organizador: ${userIdResponse.statusText}`);
     }
@@ -149,7 +149,7 @@ async function getUser(userId){
 // Função que busca a imagem do usuário
 async function fetchUserImage(userId) {
     try {
-        const response = await fetch(`http://localhost:3000/userImage/${userId}`);
+        const response = await fetch(`https://hubfy-deploy-production.up.railway.app/userImage/${userId}`);
         if (response.ok) {
             const blob = await response.blob();
             return URL.createObjectURL(blob); // Retorna a URL gerada para a imagem

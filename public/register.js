@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const userId = urlParams.get("id");
   
     try{
-        const userResponse = await fetch("http://localhost:3000/user", {
+        const userResponse = await fetch("https://hubfy-deploy-production.up.railway.app/user", {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       submitButton.textContent = "Salvar Alterações";
   
       try {
-        const response = await fetch(`http://localhost:3000/userId?id=${userId}`);
+        const response = await fetch(`https://hubfy-deploy-production.up.railway.app/userId?id=${userId}`);
         if (!response.ok) throw new Error(`Erro: ${response.statusText}`);
   
         userToEdit = await response.json();
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById("password").value = "senha";
   
         if (userToEdit.profile_photo) {
-          document.getElementById("previewImage").src = `http://localhost:3000/userImage/${userId}`;
+          document.getElementById("previewImage").src = `https://hubfy-deploy-production.up.railway.app/userImage/${userId}`;
           document.getElementById("previewImage").style.display = "block";
           document.getElementById("defaultIcon").style.display = "none";
         }
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         formData.append("profilePhoto", imageInput.files[0]);
       }
   
-      const url = isEditing ? "http://localhost:3000/editUser" : "http://localhost:3000/register";
+      const url = isEditing ? "https://hubfy-deploy-production.up.railway.app/editUser" : "https://hubfy-deploy-production.up.railway.app/register";
       const method = isEditing ? "PUT" : "POST";
   
       try {
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             ? "Usuário atualizado com sucesso!"
             : "Usuário registrado com sucesso!";
 
-            const response = await fetch('http://localhost:3000/login', {
+            const response = await fetch('https://hubfy-deploy-production.up.railway.app/login', {
                 method: 'POST', // Define o método HTTP como POST, geralmente usado para enviar dados ao servidor
                 headers: {
                     'Content-Type': 'application/json' // Define o tipo de conteúdo como JSON para o servidor entender o formato dos dados
