@@ -600,20 +600,17 @@ app.put('/editRating', async (req, res) => {
     res.json({ message: 'nota atualizada com sucesso' });
   });
 });
-app.use(express.static(path.join(__dirname, 'html')));
-app.use(express.static(path.join(__dirname, 'css')));
-app.use(express.static(path.join(__dirname, 'js')));
-app.use(express.static(path.join(__dirname, 'src'))); 
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'html', 'index.html'));
-});
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+})
 
 
 // Inicia o servidor na porta 3000
 app.listen(3000, () => {
   console.log('Servidor rodando na porta 3000');
 });
-
 
 
 
