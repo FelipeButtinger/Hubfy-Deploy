@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('link').href = `userInfo.html?id=${userData.id}&name=${userData.name}`
   } else {
     messageElement.textContent = 'Erro ao obter dados do usuário.';
+    window.location.href = 'login.html';
     return;
   }
 
